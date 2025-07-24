@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PrimeAndFactorial {
+public class Q3 {
 
     // Function to check if a number is prime
     public static boolean isPrime(int n) {

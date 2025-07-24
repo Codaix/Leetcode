@@ -28,6 +28,36 @@ Output: [8,9,9,9,0,0,0,1]
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-                
+        ListNode node = new ListNode();
+        ListNode head = node;
+        ListNode head1 = l1;
+        ListNode head2 = l2;
+        int carry = 0;
+        while(head1!=null || head2!=null || carry !=0){
+        int h1 = (head1!=null)? head1.val: 0;
+        int h2 =(head2!=null)? head2.val : 0;
+        int sum = h1+h2+carry;
+
+        carry = sum/10;
+        insertATEnd(head, sum%10);
+        head = head.next;
+        if(head1!= null)head1 = head1.next;
+        if(head2!= null)head2 = head2.next;
+        }
+        return node.next;
+    }
+    ListNode insertATEnd(ListNode head, int val){
+        ListNode node = new ListNode(val);
+        if(head == null)return node;
+        if(head.next == null){
+            head.next = node;
+            return head;
+        }
+        ListNode tail = head;
+        while(tail.next != null){
+            tail = tail.next;
+        }
+        tail.next = node;
+        return head;
     }
 }
